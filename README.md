@@ -48,7 +48,7 @@ go build -buildmode=c-shared -o libunthermo.dylib ./export
 ### Changes to unthermo
 I have made a few changes to `unthermo` to make it work better for my use case: Loading all the MS1 scans from a .raw file into a numpy ndarray (in m/z space). The results are very close to that of the thermo DLL (as judged by mean UniDec extraction).
 
-(Mildly Cocumented) Changes:
+(Mildly Documented) Changes:
 * In reader.go: the m/z conversion code wasn't working for all scans. This seem to be because `ScanEvent.Read` was reading 8 bytes too many so subsequent scans would be out of frame, and it would have to loop around over the course of several frames.
 * In reader.go: the File.spectrum function now yield a dense m/z grid instead of just peaks.
 * Finally, . Also, some convenience functions in there for me.
